@@ -12,10 +12,186 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Calibri', 'Arial', sans-serif;
             background: linear-gradient(135deg, #001a33 0%, #003366 100%);
             overflow: hidden;
             height: 100vh;
+        }
+
+        /* Экран загрузки */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #001a33;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20000;
+            overflow: hidden;
+        }
+
+        #loading-screen.hidden {
+            display: none;
+        }
+
+        .loading-text-container {
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            top: -50%;
+            left: -50%;
+        }
+
+        .loading-text {
+            position: absolute;
+            font-size: 70px;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: #00ffff;
+            text-stroke: 2px #00ffff;
+            paint-order: stroke fill;
+            transform: rotate(45deg);
+            white-space: nowrap;
+            font-family: Arial, sans-serif;
+            letter-spacing: 2px;
+            word-spacing: 40px;
+            opacity: 1;
+            filter: drop-shadow(0 0 5px #00ffff) drop-shadow(0 0 10px #00ffff);
+        }
+
+        /* Диагональные строки - 20 строк с большим расстоянием */
+        .loading-text:nth-child(1) {
+            top: -10%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(2) {
+            top: -5%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(3) {
+            top: 0%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(4) {
+            top: 5%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(5) {
+            top: 10%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(6) {
+            top: 15%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(7) {
+            top: 20%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(8) {
+            top: 25%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(9) {
+            top: 30%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(10) {
+            top: 35%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(11) {
+            top: 40%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(12) {
+            top: 45%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(13) {
+            top: 50%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(14) {
+            top: 55%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(15) {
+            top: 60%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(16) {
+            top: 65%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(17) {
+            top: 70%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(18) {
+            top: 75%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(19) {
+            top: 80%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        .loading-text:nth-child(20) {
+            top: 85%;
+            left: -20%;
+            animation: moveDiagonal 20s linear infinite;
+        }
+
+        @keyframes moveDiagonal {
+            0% {
+                transform: translate(0, 0) rotate(45deg);
+            }
+            100% {
+                transform: translate(150vw, 150vh) rotate(45deg);
+            }
         }
 
         /* Модальное окно */
@@ -71,11 +247,27 @@
             transform: scale(1.05);
         }
 
-        /* Слайды */
-        .slide-container {
+        .modal-content button:active {
+            transform: scale(0.98);
+        }
+
+        /* Контейнер презентации в стиле PowerPoint */
+        .presentation-wrapper {
             width: 100%;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .slide-container {
+            width: 960px;
+            height: 720px;
+            background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
             position: relative;
+            border-radius: 5px;
         }
 
         .slide {
@@ -83,11 +275,9 @@
             height: 100%;
             display: none;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-            text-align: center;
-            animation: slideIn 0.6s ease-in-out;
+            padding: 60px 80px;
+            position: relative;
+            animation: slideIn 0.4s ease-in-out;
         }
 
         .slide.active {
@@ -97,7 +287,7 @@
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateX(100px);
+                transform: translateX(50px);
             }
             to {
                 opacity: 1;
@@ -110,58 +300,87 @@
             to { opacity: 1; }
         }
 
-        h1 {
-            font-size: 56px;
+        /* Титульный слайд */
+        .slide.title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide.title-slide h1 {
+            font-size: 54px;
             margin-bottom: 40px;
-            text-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            line-height: 1.2;
         }
 
-        h2 {
-            font-size: 48px;
+        .slide.title-slide .slide-image {
+            max-width: 600px;
+            max-height: 350px;
+        }
+
+        /* Обычный слайд с контентом */
+        .slide.content-slide h2 {
+            font-size: 44px;
             margin-bottom: 30px;
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            text-align: center;
         }
 
-        p {
-            font-size: 24px;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto 30px;
+        .slide.content-slide .slide-image {
+            max-width: 700px;
+            max-height: 380px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .slide.content-slide p {
+            font-size: 22px;
+            line-height: 1.5;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Слайд с сеткой изображений */
+        .slide.grid-slide h2 {
+            font-size: 44px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .slide.grid-slide .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .slide.grid-slide .image-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .slide.grid-slide p {
+            font-size: 20px;
+            line-height: 1.4;
+            text-align: center;
+            margin-top: 15px;
         }
 
         .slide-image {
-            max-width: 70%;
-            max-height: 500px;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-            margin: 20px 0;
-            object-fit: cover;
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-
-        .image-grid img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+            object-fit: cover;
         }
 
-        /* Навигация */
+        /* Навигация в стиле PowerPoint */
         .navigation {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
             display: flex;
-            gap: 20px;
+            gap: 10px;
             z-index: 1000;
         }
 
@@ -169,18 +388,18 @@
             background: rgba(0, 255, 255, 0.2);
             color: #00ffff;
             border: 2px solid #00ffff;
-            padding: 12px 30px;
-            font-size: 18px;
-            border-radius: 8px;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: bold;
         }
 
-        .nav-btn:hover {
+        .nav-btn:hover:not(:disabled) {
             background: #00ffff;
             color: #001a33;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
         }
 
         .nav-btn:disabled {
@@ -189,134 +408,259 @@
         }
 
         .slide-counter {
-            position: fixed;
-            top: 30px;
-            right: 30px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
             color: #00ffff;
-            font-size: 24px;
+            font-size: 18px;
             text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
         }
 
         /* Цвета текста */
-        .color-white { color: #ffffff; }
-        .color-cyan { color: #00ffff; }
-        .color-yellow { color: #ffff00; }
-        .color-red { color: #ff4444; }
+        .color-white { color: #ffffff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+        .color-cyan { color: #00ffff; text-shadow: 0 0 15px rgba(0, 255, 255, 0.8); }
+        .color-yellow { color: #ffff00; text-shadow: 0 0 15px rgba(255, 255, 0, 0.8); }
+        .color-red { color: #ff4444; text-shadow: 0 0 15px rgba(255, 68, 68, 0.8); }
+
+        /* Placeholder для изображений */
+        .img-placeholder {
+            background: linear-gradient(135deg, #003366 0%, #004488 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00ffff;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+            border: 2px dashed #00ffff;
+        }
+
+        /* Кнопка закрытия */
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 68, 68, 0.8);
+            border: 2px solid #ff4444;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 30000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.6);
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 68, 68, 1);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 68, 68, 0.9);
+        }
+
+        .close-btn:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body>
+    <!-- Кнопка закрытия -->
+    <button class="close-btn" onclick="closeApp()" title="Закрыть приложение">×</button>
+
+    <!-- Экран загрузки -->
+    <div id="loading-screen">
+        <div class="loading-text-container">
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+            <div class="loading-text">KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV KOCHANOV</div>
+        </div>
+    </div>
+
     <!-- Модальное окно -->
-    <div id="modal">
+    <div id="modal" style="display: none;">
         <div class="modal-content">
             <h2>Сделано Кочановым Анатолием</h2>
             <button onclick="closeModal()">Начать презентацию</button>
         </div>
     </div>
 
-    <!-- Счетчик слайдов -->
-    <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">10</span>
-    </div>
-
-    <!-- Контейнер слайдов -->
-    <div class="slide-container">
-        <!-- Слайд 1: Вступление -->
-        <div class="slide active">
-            <h1 class="color-cyan">Особо охраняемые природные территории России</h1>
-            <img src="https://cdn.pixabay.com/photo/2016/11/29/05/45/astronomy-1867616_1280.jpg" 
-                 alt="Природа России" class="slide-image">
-            <p class="color-white">Уникальные природные комплексы, имеющие особое природоохранное, научное, культурное, эстетическое, рекреационное и оздоровительное значение</p>
-        </div>
-
-        <!-- Слайд 2: Алтайский заповедник -->
-        <div class="slide">
-            <h2 class="color-yellow">Алтайский заповедник</h2>
-            <img src="https://cdn.pixabay.com/photo/2016/11/21/16/21/landscape-1846098_1280.jpg" 
-                 alt="Алтайский заповедник" class="slide-image">
-            <p class="color-white">Один из крупнейших заповедников России, расположенный в горах Южной Сибири. Включен в список Всемирного наследия ЮНЕСКО.</p>
-        </div>
-
-        <!-- Слайд 3: Байкальский заповедник -->
-        <div class="slide">
-            <h2 class="color-cyan">Байкальский заповедник</h2>
-            <img src="https://cdn.pixabay.com/photo/2019/06/05/10/34/lake-4253228_1280.jpg" 
-                 alt="Байкальский заповедник" class="slide-image">
-            <p class="color-white">Охраняет уникальную экосистему озера Байкал - самого глубокого и древнего озера планеты, содержащего 20% мировых запасов пресной воды.</p>
-        </div>
-
-        <!-- Слайд 4: Кавказский заповедник -->
-        <div class="slide">
-            <h2 class="color-yellow">Кавказский заповедник</h2>
-            <img src="https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567_1280.jpg" 
-                 alt="Кавказский заповедник" class="slide-image">
-            <p class="color-white">Высокогорный заповедник, расположенный на Западном Кавказе. Здесь обитают редкие виды животных и произрастают уникальные растения.</p>
-        </div>
-
-        <!-- Слайд 5: Саяно-Шушенский заповедник -->
-        <div class="slide">
-            <h2 class="color-cyan">Саяно-Шушенский заповедник</h2>
-            <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg" 
-                 alt="Саяно-Шушенский заповедник" class="slide-image">
-            <p class="color-white">Расположен в горах Западного Саяна. Здесь сохраняется популяция снежного барса и других редких животных.</p>
-        </div>
-
-        <!-- Слайд 6: Вступление о животных -->
-        <div class="slide">
-            <h1 class="color-red">Животные и растения Красной книги</h1>
-            <img src="https://cdn.pixabay.com/photo/2018/04/13/21/24/wolf-3317670_1280.jpg" 
-                 alt="Дикая природа" class="slide-image">
-            <p class="color-white">В особо охраняемых природных территориях России обитают редкие и исчезающие виды животных и растений, занесенные в Красную книгу</p>
-        </div>
-
-        <!-- Слайд 7: Амурский тигр -->
-        <div class="slide">
-            <h2 class="color-yellow">Амурский тигр</h2>
-            <div class="image-grid">
-                <img src="https://cdn.pixabay.com/photo/2017/07/24/19/57/tiger-2535888_1280.jpg" alt="Амурский тигр 1">
-                <img src="https://cdn.pixabay.com/photo/2016/11/14/04/45/tiger-1822537_1280.jpg" alt="Амурский тигр 2">
-                <img src="https://cdn.pixabay.com/photo/2018/01/24/19/52/tiger-3104269_1280.jpg" alt="Амурский тигр 3">
+    <div class="presentation-wrapper">
+        <div class="slide-container">
+            <!-- Счетчик слайдов -->
+            <div class="slide-counter">
+                <span id="current-slide">1</span> / <span id="total-slides">10</span>
             </div>
-            <p class="color-white">Самый крупный подвид тигра. Обитает в Приморском и Хабаровском краях. Популяция составляет около 600 особей.</p>
-        </div>
 
-        <!-- Слайд 8: Дальневосточный леопард -->
-        <div class="slide">
-            <h2 class="color-cyan">Дальневосточный леопард</h2>
-            <div class="image-grid">
-                <img src="https://cdn.pixabay.com/photo/2018/09/25/21/54/leopard-3703017_1280.jpg" alt="Леопард 1">
-                <img src="https://cdn.pixabay.com/photo/2019/07/19/14/00/leopard-4348847_1280.jpg" alt="Леопард 2">
-                <img src="https://cdn.pixabay.com/photo/2017/01/14/12/59/leopard-1979750_1280.jpg" alt="Леопард 3">
+            <!-- Слайд 1: Титульный -->
+            <div class="slide title-slide active">
+                <h1 class="color-cyan">Особо охраняемые природные территории России</h1>
+                <img id="img-1" alt="Природа России" class="slide-image" 
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="img-placeholder slide-image" style="display:none; width:600px; height:350px;">
+                    Вставьте изображение<br>природы России<br>(1.jpg/png/jpeg/webp)
+                </div>
+                <p class="color-white">Уникальные природные комплексы России</p>
             </div>
-            <p class="color-white">Один из самых редких представителей семейства кошачьих. В дикой природе осталось менее 100 особей.</p>
-        </div>
 
-        <!-- Слайд 9: Снежный барс -->
-        <div class="slide">
-            <h2 class="color-yellow">Снежный барс (Ирбис)</h2>
-            <div class="image-grid">
-                <img src="https://cdn.pixabay.com/photo/2019/06/20/18/52/snow-leopard-4287363_1280.jpg" alt="Снежный барс 1">
-                <img src="https://cdn.pixabay.com/photo/2017/01/14/10/56/snow-leopard-1979082_1280.jpg" alt="Снежный барс 2">
-                <img src="https://cdn.pixabay.com/photo/2018/03/31/06/31/snow-leopard-3277632_1280.jpg" alt="Снежный барс 3">
+            <!-- Слайд 2: Алтайский заповедник -->
+            <div class="slide content-slide">
+                <h2 class="color-yellow">Алтайский заповедник</h2>
+                <img id="img-2" alt="Алтайский заповедник" class="slide-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="img-placeholder slide-image" style="display:none; width:700px; height:380px;">
+                    Вставьте изображение<br>Алтайского заповедника<br>(2.jpg/png/jpeg/webp)
+                </div>
+                <p class="color-white">Один из крупнейших заповедников России, расположенный в горах Южной Сибири. Включен в список Всемирного наследия ЮНЕСКО.</p>
             </div>
-            <p class="color-white">Обитает в горных районах Алтая и Саян. Прекрасно приспособлен к жизни в суровых условиях высокогорья.</p>
-        </div>
 
-        <!-- Слайд 10: Эдельвейс и зубр -->
-        <div class="slide">
-            <h2 class="color-red">Эдельвейс и Кавказский зубр</h2>
-            <div class="image-grid">
-                <img src="https://cdn.pixabay.com/photo/2020/07/01/18/01/edelweiss-5359907_1280.jpg" alt="Эдельвейс 1">
-                <img src="https://cdn.pixabay.com/photo/2020/02/06/10/28/bison-4823674_1280.jpg" alt="Зубр 1">
-                <img src="https://cdn.pixabay.com/photo/2019/08/19/13/58/edelweiss-4416485_1280.jpg" alt="Эдельвейс 2">
+            <!-- Слайд 3: Байкальский заповедник -->
+            <div class="slide content-slide">
+                <h2 class="color-cyan">Байкальский заповедник</h2>
+                <img id="img-3" alt="Байкальский заповедник" class="slide-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="img-placeholder slide-image" style="display:none; width:700px; height:380px;">
+                    Вставьте изображение<br>озера Байкал<br>(3.jpg/png/jpeg/webp)
+                </div>
+                <p class="color-white">Охраняет уникальную экосистему озера Байкал - самого глубокого и древнего озера планеты, содержащего 20% мировых запасов пресной воды.</p>
             </div>
-            <p class="color-white">Эдельвейс - редкое горное растение, символ гор. Кавказский зубр - крупнейшее наземное млекопитающее Европы, восстановленное из вымирания.</p>
-        </div>
-    </div>
 
-    <!-- Навигация -->
-    <div class="navigation">
-        <button class="nav-btn" id="prev-btn" onclick="changeSlide(-1)">← Назад</button>
-        <button class="nav-btn" id="next-btn" onclick="changeSlide(1)">Вперед →</button>
+            <!-- Слайд 4: Кавказский заповедник -->
+            <div class="slide content-slide">
+                <h2 class="color-yellow">Кавказский заповедник</h2>
+                <img id="img-4" alt="Кавказский заповедник" class="slide-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="img-placeholder slide-image" style="display:none; width:700px; height:380px;">
+                    Вставьте изображение<br>Кавказских гор<br>(4.jpg/png/jpeg/webp)
+                </div>
+                <p class="color-white">Высокогорный заповедник, расположенный на Западном Кавказе. Здесь обитают редкие виды животных и произрастают уникальные растения.</p>
+            </div>
+
+            <!-- Слайд 5: Саяно-Шушенский заповедник -->
+            <div class="slide content-slide">
+                <h2 class="color-cyan">Саяно-Шушенский заповедник</h2>
+                <img id="img-5" alt="Саяно-Шушенский заповедник" class="slide-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="img-placeholder slide-image" style="display:none; width:700px; height:380px;">
+                    Вставьте изображение<br>гор Саян<br>(5.jpg/png/jpeg/webp)
+                </div>
+                <p class="color-white">Расположен в горах Западного Саяна. Здесь сохраняется популяция снежного барса и других редких животных.</p>
+            </div>
+
+            <!-- Слайд 6: Вступление о животных -->
+            <div class="slide title-slide">
+                <h1 class="color-red">Животные и растения Красной книги</h1>
+                <img id="img-6" alt="Дикая природа" class="slide-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="img-placeholder slide-image" style="display:none; width:600px; height:350px;">
+                    Вставьте изображение<br>дикой природы<br>(6.jpg/png/jpeg/webp)
+                </div>
+                <p class="color-white">Редкие и исчезающие виды животных и растений</p>
+            </div>
+
+            <!-- Слайд 7: Амурский тигр -->
+            <div class="slide grid-slide">
+                <h2 class="color-yellow">Амурский тигр</h2>
+                <div class="image-grid">
+                    <img id="img-7-1" alt="Амурский тигр 1" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Тигр 1<br>(7-1)</div>
+                    
+                    <img id="img-7-2" alt="Амурский тигр 2"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Тигр 2<br>(7-2)</div>
+                    
+                    <img id="img-7-3" alt="Амурский тигр 3"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Тигр 3<br>(7-3)</div>
+                </div>
+                <p class="color-white">Самый крупный подвид тигра. Обитает в Приморском и Хабаровском краях. Популяция составляет около 600 особей.</p>
+            </div>
+
+            <!-- Слайд 8: Дальневосточный леопард -->
+            <div class="slide grid-slide">
+                <h2 class="color-cyan">Дальневосточный леопард</h2>
+                <div class="image-grid">
+                    <img id="img-8-1" alt="Леопард 1"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Леопард 1<br>(8-1)</div>
+                    
+                    <img id="img-8-2" alt="Леопард 2"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Леопард 2<br>(8-2)</div>
+                    
+                    <img id="img-8-3" alt="Леопард 3"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Леопард 3<br>(8-3)</div>
+                </div>
+                <p class="color-white">Один из самых редких представителей семейства кошачьих. В дикой природе осталось менее 100 особей.</p>
+            </div>
+
+            <!-- Слайд 9: Снежный барс -->
+            <div class="slide grid-slide">
+                <h2 class="color-yellow">Снежный барс (Ирбис)</h2>
+                <div class="image-grid">
+                    <img id="img-9-1" alt="Снежный барс 1"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Барс 1<br>(9-1)</div>
+                    
+                    <img id="img-9-2" alt="Снежный барс 2"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Барс 2<br>(9-2)</div>
+                    
+                    <img id="img-9-3" alt="Снежный барс 3"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Барс 3<br>(9-3)</div>
+                </div>
+                <p class="color-white">Обитает в горных районах Алтая и Саян. Прекрасно приспособлен к жизни в суровых условиях высокогорья.</p>
+            </div>
+
+            <!-- Слайд 10: Эдельвейс и зубр -->
+            <div class="slide grid-slide">
+                <h2 class="color-red">Эдельвейс и Кавказский зубр</h2>
+                <div class="image-grid">
+                    <img id="img-10-1" alt="Эдельвейс 1"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Эдельвейс<br>(10-1)</div>
+                    
+                    <img id="img-10-2" alt="Зубр"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Зубр<br>(10-2)</div>
+                    
+                    <img id="img-10-3" alt="Эдельвейс 2"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display:none; height:200px;">Растения<br>(10-3)</div>
+                </div>
+                <p class="color-white">Эдельвейс - редкое горное растение, символ гор. Кавказский зубр - крупнейшее наземное млекопитающее Европы.</p>
+            </div>
+
+            <!-- Навигация -->
+            <div class="navigation">
+                <button class="nav-btn" id="prev-btn" onclick="changeSlide(-1)">◄ Назад</button>
+                <button class="nav-btn" id="next-btn" onclick="changeSlide(1)">Вперед ►</button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -326,8 +670,84 @@
 
         document.getElementById('total-slides').textContent = totalSlides;
 
+        // Функция для загрузки изображений с поддержкой разных форматов
+        function loadImage(imgId, baseName) {
+            const img = document.getElementById(imgId);
+            const formats = ['jpg', 'jpeg', 'png', 'webp'];
+            let formatIndex = 0;
+
+            function tryNextFormat() {
+                if (formatIndex < formats.length) {
+                    const testImg = new Image();
+                    testImg.onload = function() {
+                        img.src = baseName + '.' + formats[formatIndex];
+                        img.style.display = 'block';
+                        if (img.nextElementSibling && img.nextElementSibling.classList.contains('img-placeholder')) {
+                            img.nextElementSibling.style.display = 'none';
+                        }
+                    };
+                    testImg.onerror = function() {
+                        formatIndex++;
+                        tryNextFormat();
+                    };
+                    testImg.src = baseName + '.' + formats[formatIndex];
+                } else {
+                    // Если ни один формат не найден, показываем placeholder
+                    img.style.display = 'none';
+                    if (img.nextElementSibling && img.nextElementSibling.classList.contains('img-placeholder')) {
+                        img.nextElementSibling.style.display = 'flex';
+                    }
+                }
+            }
+
+            tryNextFormat();
+        }
+
+        // Показываем загрузочный экран на 3 секунды
+        window.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').classList.add('hidden');
+                document.getElementById('modal').style.display = 'flex';
+            }, 3000);
+        });
+
+        // Загружаем все изображения при старте
+        window.addEventListener('load', function() {
+            // Основные слайды
+            loadImage('img-1', '1');
+            loadImage('img-2', '2');
+            loadImage('img-3', '3');
+            loadImage('img-4', '4');
+            loadImage('img-5', '5');
+            loadImage('img-6', '6');
+            
+            // Слайд 7 - Тигры
+            loadImage('img-7-1', '7-1');
+            loadImage('img-7-2', '7-2');
+            loadImage('img-7-3', '7-3');
+            
+            // Слайд 8 - Леопарды
+            loadImage('img-8-1', '8-1');
+            loadImage('img-8-2', '8-2');
+            loadImage('img-8-3', '8-3');
+            
+            // Слайд 9 - Снежные барсы
+            loadImage('img-9-1', '9-1');
+            loadImage('img-9-2', '9-2');
+            loadImage('img-9-3', '9-3');
+            
+            // Слайд 10 - Эдельвейс и зубр
+            loadImage('img-10-1', '10-1');
+            loadImage('img-10-2', '10-2');
+            loadImage('img-10-3', '10-3');
+        });
+
         function closeModal() {
-            document.getElementById('modal').classList.add('hidden');
+            const modal = document.getElementById('modal');
+            if (modal) {
+                modal.style.display = 'none';
+                modal.classList.add('hidden');
+            }
         }
 
         function showSlide(n) {
@@ -355,6 +775,12 @@
             if (e.key === 'ArrowRight') changeSlide(1);
             if (e.key === 'Escape') closeModal();
         });
+
+        // Функция закрытия приложения
+        function closeApp() {
+            // Просто закрываем окно браузера
+            window.close();
+        }
 
         // Инициализация
         showSlide(0);
